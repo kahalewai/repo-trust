@@ -1,6 +1,6 @@
 # Repo Trust
 
-[![Repo Trust](https://img.shields.io/badge/Repo%20Trust-VERIFIED-brightgreen)](https://github.com/repo-trust/action)
+[![Repo Trust](https://img.shields.io/badge/Repo%20Trust-VERIFIED-brightgreen)](https://github.com/kahalewai/repo-trust)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Repo Trust is a publisher-side distribution trust system for GitHub repositories.
