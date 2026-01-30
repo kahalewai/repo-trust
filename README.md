@@ -3,15 +3,13 @@
 [![Repo Trust](https://img.shields.io/badge/Repo%20Trust-VERIFIED-brightgreen)](https://github.com/kahalewai/repo-trust)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Repo Trust is a publisher-side distribution trust system for GitHub repositories.
-
-It lets maintainers cryptographically prove that downloadable artifacts were published by the official repository — and lets users see that proof instantly, without installing anything.
+Repo Trust is a publisher-side distribution trust system for GitHub repositories. It lets maintainers cryptographically prove that downloadable artifacts were published by the official repository, and lets users see that proof instantly, without installing anything.
 
 <br>
 
 ## The Problem
 
-Repo Squatters don't compromise repositories — they impersonate them.
+Repo Squatters don't compromise repositories, they impersonate them.
 
 Attackers:
 - Fork popular repos
