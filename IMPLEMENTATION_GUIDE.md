@@ -528,15 +528,7 @@ If you suspect key compromise:
 - [ ] Published a test release
 - [ ] Verified badge shows VERIFIED
 - [ ] Securely deleted local private key
+- [ ] Party time!!
 
 <br>
 
-## Getting Help
-
-- **Documentation**: [Repo Trust README](https://github.com/kahalewai/repo-trust)
-- **Issues**: [GitHub Issues](https://github.com/kahalewai/repo-trust/issues)
-- **Security**: Report security issues privately via GitHub Security Advisories
-
-<br>
-
-**Repo Trust — Making authenticity obvious.**
