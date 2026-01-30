@@ -283,25 +283,3 @@ If users download things from your repository, **Repo Trust applies**.
 Apache 2.0
 
 <br>
-
-## The Key Insight
-
-> Attackers can fake artifacts, but they can't fake identity when verification is opinionated and centralized.
-
-Repo Trust doesn't prevent attackers from uploading malware. It makes legitimacy expensive to fake.
-
-When your official repository shows a green badge and a fork shows red (or nothing), users know what's real.
-
-<br>
-
-## Acknowledgments
-
-Repo Trust was designed to address real-world attacks like the GitHub Desktop repo squatting campaign discovered in late 2025. It draws inspiration from:
-
-- [Sigstore](https://sigstore.dev) — Keyless signing infrastructure
-- [SLSA](https://slsa.dev) — Supply chain security framework
-- [The Update Framework (TUF)](https://theupdateframework.io) — Secure software updates
-
-<br>
-
-Repo Trust doesn't ask users to be careful. It makes authenticity obvious.
