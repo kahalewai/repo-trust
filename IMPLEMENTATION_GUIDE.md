@@ -1,4 +1,4 @@
-# Repo Trust — Implementation & Installation Guide
+# Repo Trust - Implementation & Installation Guide
 
 This guide provides detailed, step-by-step instructions for installing and configuring Repo Trust on your GitHub repository.
 
