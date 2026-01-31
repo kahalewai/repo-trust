@@ -26,12 +26,14 @@ if [ -z "${REPO_TRUST_SIGNING_KEY:-}" ]; then
     exit 1
 fi
 
-# Set up GitHub API URL (supports GitHub Enterprise)
+# Set up GitHub API URL (supports GitHub Enterprise Server)
+# For GHES, set GITHUB_API_URL and GITHUB_SERVER_URL in your workflow
 export GITHUB_API_URL="${GITHUB_API_URL:-https://api.github.com}"
 export GITHUB_SERVER_URL="${GITHUB_SERVER_URL:-https://github.com}"
 
 echo "[repo-trust] Repository: ${GITHUB_REPOSITORY}"
 echo "[repo-trust] Release tag: ${GITHUB_REF_NAME}"
+echo "[repo-trust] API URL: ${GITHUB_API_URL}"
 
 # Write signing key to disk with secure permissions
 KEY_PATH="/tmp/repo-trust-signing-key"
