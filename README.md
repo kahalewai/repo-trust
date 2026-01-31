@@ -10,7 +10,7 @@ It lets users verify with one click that they're viewing the official repository
 
 ## The Problem: Repo Squatting
 
-Attackers don't need to compromise repositories — they can **impersonate** them.
+Attackers don't need to compromise repositories, they can impersonate them.
 
 **How the attack works:**
 
