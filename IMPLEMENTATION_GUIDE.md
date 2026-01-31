@@ -1,8 +1,8 @@
-# Repo Trust — Implementation & Installation Guide
+# Repo Trust - Implementation & Installation Guide
 
 This guide provides detailed, step-by-step instructions for installing and configuring Repo Trust on your GitHub repository.
 
----
+<br>
 
 ## Table of Contents
 
@@ -21,20 +21,20 @@ This guide provides detailed, step-by-step instructions for installing and confi
 6. [Troubleshooting](#troubleshooting)
 7. [Security Considerations](#security-considerations)
 
----
+<br>
 
 ## Overview
 
 ### What You Are Installing
 
-Repo Trust adds **publisher-side distribution trust** to your GitHub repository.
+Repo Trust adds publisher-side distribution trust to your GitHub repository.
 
 Once installed:
-- Your official releases generate a **cryptographically signed distribution manifest**
+- Your official releases generate a cryptographically signed distribution manifest
 - Repo Trust verifies that manifest continuously
-- A **visual trust badge** is published via GitHub Pages
-- Forks and impersonators **cannot generate a valid badge**
-- Users don't install or run anything — they just *see trust*
+- A visual trust badge is published via GitHub Pages
+- Forks and impersonators cannot generate a valid badge
+- Users don't install or run anything, they just *see trust*
 
 ### How It Works
 
@@ -60,7 +60,7 @@ Once installed:
 - Initial setup: **10-15 minutes**
 - Per-release: **Automatic** (no manual steps)
 
----
+<br>
 
 ## Prerequisites
 
@@ -84,7 +84,7 @@ ssh-keygen --help
 # Go to: https://github.com/YOUR-ORG/YOUR-REPO/releases
 ```
 
----
+<br>
 
 ## Installation Steps
 
@@ -119,7 +119,7 @@ ssh-keygen -t rsa -b 4096 -f repo-trust-key -N "" -C "repo-trust"
 - **Delete local copies** after adding to GitHub Secrets
 - The private key will only be stored as a GitHub Secret
 
----
+<br>
 
 ### Step 2: Configure Repository
 
@@ -143,7 +143,7 @@ The file should contain a single line starting with:
 - `ssh-ed25519 AAAA...` (for Ed25519 keys)
 - `ssh-rsa AAAA...` (for RSA keys)
 
----
+<br>
 
 ### Step 3: Add GitHub Secret
 
@@ -186,7 +186,7 @@ GitHub Secrets have these security properties:
 - Not visible in logs
 - Cannot be retrieved after creation
 
----
+<br>
 
 ### Step 4: Create Workflow
 
@@ -240,7 +240,7 @@ git push
 | `GITHUB_TOKEN` | Automatically provided by GitHub Actions |
 | `signing_key` | Your private key from secrets |
 
----
+<br>
 
 ### Step 5: Enable GitHub Pages
 
@@ -274,7 +274,7 @@ After your first release with Repo Trust, verify:
 2. Confirm the site is published
 3. Note the URL: `https://YOUR-USERNAME.github.io/YOUR-REPO/`
 
----
+<br>
 
 ### Step 6: Add Badge to README
 
@@ -304,7 +304,7 @@ Download the latest release from [GitHub Releases](https://github.com/myorg/mypr
 ...
 ```
 
----
+<br>
 
 ### Step 7: Verify Installation
 
@@ -329,7 +329,7 @@ After successful completion:
 2. **GitHub Pages**: Visit `https://YOUR-USERNAME.github.io/YOUR-REPO/repo-trust/`
 3. **Badge**: Verify the badge shows "VERIFIED"
 
----
+<br>
 
 ## Configuration Options
 
@@ -378,7 +378,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
----
+<br>
 
 ## Operational Procedures
 
@@ -423,7 +423,7 @@ To stop publishing verified badges:
 - Rotate keys when maintainer access changes
 - Each maintainer generates their own key
 
----
+<br>
 
 ## Troubleshooting
 
@@ -473,7 +473,7 @@ env:
   ACTIONS_STEP_DEBUG: true
 ```
 
----
+<br>
 
 ## Security Considerations
 
@@ -515,7 +515,7 @@ If you suspect key compromise:
 5. Publish a new release to update the badge
 6. Notify users to verify they have the latest release
 
----
+<br>
 
 ## Summary Checklist
 
@@ -529,14 +529,4 @@ If you suspect key compromise:
 - [ ] Verified badge shows VERIFIED
 - [ ] Securely deleted local private key
 
----
-
-## Getting Help
-
-- **Documentation**: [Repo Trust README](https://github.com/repo-trust/action)
-- **Issues**: [GitHub Issues](https://github.com/repo-trust/action/issues)
-- **Security**: Report security issues privately via GitHub Security Advisories
-
----
-
-**Repo Trust — Making authenticity obvious.**
+<br>
