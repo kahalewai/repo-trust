@@ -1,10 +1,12 @@
-# Repo Trust
+<div align="center">
+<img width="554" height="554" alt="repo-trust" src="https://github.com/user-attachments/assets/e53b0a14-1ee4-461e-90e6-d2752eb90298" />
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+</div>
 
-**Repo Trust detects repo squatting attacks on GitHub.**
+<br>
 
-It lets users verify with one click that they're viewing the official repository — not a malicious fork commit impersonating it.
+Repo Trust is a publisher-side distribution trust system for GitHub repositories. Repo trust lets users verify with one click, that they are viewing the official repository of a project, not a malicious fork commit impersonating. Repo Trust was designed to prevent Repo Squatting Attacks. Repo Trust is free and Open Source Apache 2.0, and operated completely within your Repository using Github Actions, CI/CD, Docker, Github Pages, and the Repo Trust Verification System.
 
 <br>
 
@@ -23,6 +25,8 @@ How the attack works:
 6. User downloads malware thinking it's legitimate
 
 This attack has been used to distribute malware disguised as GitHub Desktop, Chrome, 1Password, and Bitwarden. As of January 2026, GitHub has acknowledged this issue but it can still be reproduced.
+
+<br>
 
 Why traditional solutions fail:
 
@@ -175,6 +179,8 @@ If commit IS in main branch history:
   ✅ VERIFIED: Official repository
 ```
 
+<br>
+
 ### What Repo Trust Detects
 
 | Attack | Detection |
@@ -184,7 +190,9 @@ If commit IS in main branch history:
 | Typosquatting (similar repo name) | ✅ Detected via Referer mismatch |
 | Modified README in official repo | ❌ Not detected (requires compromised maintainer) |
 
-### What Repo Trust Does NOT Do
+<br>
+
+### Out of scope for Repo Trust
 
 - Scan code for vulnerabilities  
 - Judge software safety  
@@ -268,6 +276,8 @@ env:
 - CLI tool authors
 - Desktop application developers
 - Any popular repository at risk of being impersonated
+
+<br>
 
 If attackers might target your repository with ads or fake downloads, Repo Trust helps your users verify authenticity.
 
