@@ -12,7 +12,7 @@ It lets users verify with one click that they're viewing the official repository
 
 Attackers don't need to compromise repositories, they can impersonate them.
 
-**How the attack works:**
+How the attack works:
 
 1. Attacker forks a popular repo (e.g., `github.com/desktop/desktop`)
 2. Attacker modifies the README in their fork to point to malware
