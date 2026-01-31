@@ -6,9 +6,9 @@
 
 It lets users verify with one click that they're viewing the official repository — not a malicious fork commit impersonating it.
 
----
+<br>
 
-## 🚨 The Problem: Repo Squatting
+## The Problem: Repo Squatting
 
 Attackers don't need to compromise repositories — they can **impersonate** them.
 
@@ -19,20 +19,20 @@ Attackers don't need to compromise repositories — they can **impersonate** the
 3. Due to GitHub's fork network design, this commit appears at:  
    `github.com/desktop/desktop/tree/<malicious_commit_hash>`
 4. Attacker promotes this URL via Google Ads
-5. User lands on what **looks like** the official repo — URL says `github.com/desktop/desktop`
+5. User lands on what looks like the official repo — URL says `github.com/desktop/desktop`
 6. User downloads malware thinking it's legitimate
 
-**This attack has been used to distribute malware disguised as GitHub Desktop, Chrome, 1Password, and Bitwarden.** As of January 2026, GitHub has acknowledged this issue but it can still be reproduced.
+This attack has been used to distribute malware disguised as GitHub Desktop, Chrome, 1Password, and Bitwarden. As of January 2026, GitHub has acknowledged this issue but it can still be reproduced.
 
-**Why traditional solutions fail:**
+Why traditional solutions fail:
 
-- ✖️ **Hashes don't help** — attacker controls both the binary and the displayed hash
-- ✖️ **URL checking doesn't help** — the URL IS the official domain
-- ✖️ **Visual inspection doesn't help** — the page looks identical to the real one
+- Hashes don't help - attacker controls both the binary and the displayed hash
+- URL checking doesn't help - the URL IS the official domain
+- Visual inspection doesn't help - the page looks identical to the real one
 
----
+<br>
 
-## ✅ The Solution: Click to Verify
+## The Solution: Click to Verify
 
 Repo Trust adds a verification badge to your README:
 
@@ -42,23 +42,23 @@ Repo Trust adds a verification badge to your README:
 
 **When a user clicks the badge:**
 
-1. Their browser sends the **Referer header** (the page they clicked from)
+1. Their browser sends the Referer header (the page they clicked from)
 2. The verification page checks if the URL contains a commit hash
-3. If yes, it calls the **GitHub API** to verify that commit is in the official branch
-4. **Fork commits are detected** — they're not in the official history
+3. If yes, it calls the GitHub API to verify that commit is in the official branch
+4. Fork commits are detected - they're not in the official history
 5. User sees clear ✅ VERIFIED or ⚠️ WARNING result
 
-**Why this works:**
+Why this works:
 
-- ✅ **Referer is browser-controlled** — attackers cannot fake it
-- ✅ **Commit ancestry is verifiable** — we can check if a commit is in `main`
-- ✅ **GitHub API is public** — no authentication needed
-- ✅ **Works on GitHub Pages** — no external servers required
-- ✅ **Fails safely** — if Referer is missing, we prompt manual verification
+- Referer is browser-controlled - attackers cannot fake it
+- Commit ancestry is verifiable - we can check if a commit is in `main`
+- GitHub API is public - no authentication needed
+- Works on GitHub Pages - no external servers required
+- Fails safely - if Referer is missing, we prompt manual verification
 
----
+<br>
 
-## 🎯 What Users See
+## What Users See
 
 ### When coming from the official page:
 ```
@@ -75,9 +75,9 @@ This is a strong indicator of a repo squatting attack.
 → Go to the official repository: github.com/your-org/your-repo
 ```
 
----
+<br>
 
-## ⚡ Quick Start
+## Quick Start
 
 ### Step 1: Generate a signing key
 
@@ -145,9 +145,9 @@ jobs:
 
 **Important:** The badge must LINK to the verification page, not just display an image.
 
----
+<br>
 
-## 🔒 Security Model
+## Security Model
 
 ### How Verification Works
 
@@ -186,17 +186,17 @@ If commit IS in main branch history:
 
 ### What Repo Trust Does NOT Do
 
-- ❌ Scan code for vulnerabilities  
-- ❌ Judge software safety  
-- ❌ Prevent malicious commits by maintainers  
-- ❌ Replace code signing certificates
+- Scan code for vulnerabilities  
+- Judge software safety  
+- Prevent malicious commits by maintainers  
+- Replace code signing certificates
 
-**Repo Trust answers one question:**
-> **Am I viewing the official repository, or a repo squatting attack?**
+Repo Trust answers one question:
+> Am I viewing the official repository, or a repo squatting attack?
 
----
+<br>
 
-## 📦 What Gets Published
+## What Gets Published
 
 Each release will contain:
 
@@ -212,35 +212,35 @@ The GitHub Pages site will contain:
 | `/repo-trust/distribution.svg` | Verification badge |
 | `/repo-trust/index.html` | Dynamic verification page |
 
----
+<br>
 
-## 🔄 GitHub Pages Compatibility
+## GitHub Pages Compatibility
 
-Repo Trust **coexists safely** with existing GitHub Pages content.
+Repo Trust coexists safely with existing GitHub Pages content.
 
 - Only writes to `/repo-trust/` subdirectory
 - Never force-pushes
 - Never deletes existing content
 
----
+<br>
 
-## 🛡️ Fork Behavior
+## Fork Behavior
 
 When someone forks your repository:
 
-- They **can** copy your workflow files
-- They **can** copy your badge markdown  
-- They **cannot** access your signing secret
+- They can copy your workflow files
+- They can copy your badge markdown  
+- They cannot access your signing secret
 - Their verification page won't exist on your GitHub Pages
 - If they create their own, it will show their repo name (not yours)
 
----
+<br>
 
-## ❓ FAQ
+## FAQ
 
 ### Why "Click to Verify" instead of a status badge?
 
-Static badges can be copied. The security comes from the **verification page**, not the badge image. The badge is just a button that takes users to verification.
+Static badges can be copied. The security comes from the verification page, not the badge image. The badge is just a button that takes users to verification.
 
 ### What if Referer is blocked by privacy settings?
 
@@ -248,7 +248,7 @@ The verification page will show "Manual Check Required" and guide users to verif
 
 ### Can attackers link their badge to my verification page?
 
-Yes, but the verification page checks the **Referer**. If someone clicks a badge from a different repository, the verification will detect the mismatch.
+Yes, but the verification page checks the Referer. If someone clicks a badge from a different repository, the verification will detect the mismatch.
 
 ### Does this work with GitHub Enterprise Server?
 
@@ -260,54 +260,21 @@ env:
   GITHUB_SERVER_URL: https://github.your-company.com
 ```
 
----
+<br>
 
-## 🗺️ Roadmap
-
-### Phase 1 (Current)
-- ✅ Referer-based commit verification
-- ✅ GitHub API commit ancestry checking
-- ✅ SSH-based manifest signing
-- ✅ GitHub Pages hosting
-
-### Phase 2 (Planned)
-- ⬜ Sigstore/OIDC keyless signing
-- ⬜ Browser extension for automatic verification
-- ⬜ GitHub Action that comments on suspicious commits
-
----
-
-## 🤝 Who Should Use Repo Trust
+## Who Should Use Repo Trust
 
 - Open-source maintainers publishing binaries
 - CLI tool authors
 - Desktop application developers
-- **Any popular repository** at risk of being impersonated
+- Any popular repository at risk of being impersonated
 
-If attackers might target your repository with ads or fake downloads, **Repo Trust helps your users verify authenticity**.
+If attackers might target your repository with ads or fake downloads, Repo Trust helps your users verify authenticity.
 
----
+<br>
 
-## 📜 License
+## License
 
 Apache 2.0
 
----
-
-## 💡 The Key Insight
-
-> **The browser's Referer header is the trust anchor.**
-
-Attackers can control what's displayed on a page, but they cannot control what URL the browser reports when a user clicks a link. By checking where users came from — and verifying that commits are in the official history — we can detect repo squatting attacks.
-
-**Repo Trust doesn't ask users to be security experts. It makes verification one click.**
-
----
-
-## 🙏 Acknowledgments
-
-Repo Trust was designed to address real-world repo squatting attacks like the GitHub Desktop campaign discovered in September 2025 (still reproducible as of January 2026).
-
-Research references:
-- [GMO Cybersecurity - Repo Squatting and GPUGate](https://gmo-cybersecurity.com/blog/revisiting-gpugate-repo-squatting-and-opencl-deception-to-deliver-hijackloader/)
-- [Arctic Wolf - GPUGate Malware Analysis](https://arcticwolf.com/resources/blog/gpugate-malware-malicious-github-desktop-implants-use-hardware-specific-decryption-abuse-google-ads-target-western-europe/)
+<br>
