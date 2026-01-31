@@ -151,6 +151,13 @@ jobs:
 
 <br>
 
+## Detailed instructions
+
+For detailed installation and usage instructions: https://github.com/kahalewai/repo-trust/blob/main/IMPLEMENTATION_GUIDE.md
+
+<br>
+
+
 ## Security Model
 
 ### How Verification Works
