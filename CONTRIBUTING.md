@@ -2,9 +2,13 @@
 
 Thank you for your interest in contributing to Repo Trust! This document provides guidelines and information for contributors.
 
+<br>
+
 ## Code of Conduct
 
 By participating in this project, you agree to maintain a respectful and inclusive environment for everyone.
+
+<br>
 
 ## How to Contribute
 
@@ -21,12 +25,16 @@ Before creating an issue:
 
 **Security issues**: Please report security vulnerabilities privately via GitHub Security Advisories, NOT as public issues. See [SECURITY.md](SECURITY.md).
 
+<br>
+
 ### Feature Requests
 
 We welcome feature requests! Please:
 1. Check if it's already been requested
 2. Explain the use case clearly
 3. Consider if it fits Repo Trust's scope (distribution trust, not general security)
+
+<br>
 
 ### Pull Requests
 
@@ -36,11 +44,13 @@ We welcome feature requests! Please:
 2. Check the roadmap to avoid duplicate work
 3. Ensure your change aligns with project goals
 
+<br>
+
 #### Development Setup
 
 ```bash
 # Clone the repository
-git clone https://github.com/repo-trust/action.git
+git clone https://github.com/kahalewai/repo-trust/action.git
 cd action
 
 # Create a virtual environment
@@ -55,6 +65,8 @@ pip install -r requirements-dev.txt  # if available
 python -m pytest tests/
 ```
 
+<br>
+
 #### Making Changes
 
 1. Create a feature branch: `git checkout -b feature/your-feature`
@@ -63,6 +75,8 @@ python -m pytest tests/
 4. Update documentation if needed
 5. Run the test suite
 6. Commit with clear messages
+
+<br>
 
 #### Commit Messages
 
@@ -84,6 +98,8 @@ Types:
 - `test`: Adding or updating tests
 - `chore`: Maintenance tasks
 
+<br>
+
 #### Pull Request Process
 
 1. Update the README.md if needed
@@ -91,6 +107,8 @@ Types:
 3. Ensure all tests pass
 4. Request review from maintainers
 5. Address review feedback
+
+<br>
 
 ## Development Guidelines
 
@@ -101,12 +119,16 @@ Types:
 - Keep functions focused and small
 - Add docstrings to public functions
 
+<br>
+
 ### Error Handling
 
 - Use the custom exception classes in `logging.py`
 - Provide actionable error messages
 - Include context that helps debugging
 - Don't swallow exceptions silently
+
+<br>
 
 ### Logging
 
@@ -117,12 +139,16 @@ Types:
   - `warning`: Unexpected but recoverable
   - `error`: Operation failures
 
+<br>
+
 ### Testing
 
 - Add tests for new functionality
 - Maintain or improve code coverage
 - Test error paths, not just happy paths
 - Mock external services (GitHub API)
+
+<br>
 
 ### Security
 
@@ -131,27 +157,7 @@ Types:
 - Use timeouts on external calls
 - Follow principle of least privilege
 
-## Architecture Overview
-
-```
-repo_trust/
-├── __init__.py      # Package metadata
-├── logging.py       # Logging infrastructure and exceptions
-├── github.py        # GitHub API client
-├── signing.py       # SSH signing operations
-├── manifest.py      # Manifest generation
-├── verify.py        # Signature verification
-├── upload.py        # Release asset upload
-├── pages.py         # GitHub Pages publishing
-└── badge.py         # SVG badge generation
-```
-
-### Key Design Decisions
-
-1. **SSH signing over GPG**: Simpler key management, native GitHub support
-2. **GitHub Pages for badges**: No external dependencies, namespace protection
-3. **Embedded repo name in badge**: Anti-impersonation measure
-4. **Non-destructive Pages updates**: Coexists with existing content
+<br>
 
 ## Release Process
 
@@ -162,12 +168,15 @@ Releases are managed by maintainers:
 3. Create a GitHub Release with tag `vX.Y.Z`
 4. GitHub Actions builds and publishes
 
+<br>
+
 ## Getting Help
 
 - **Questions**: Open a Discussion
 - **Bugs**: Open an Issue
 - **Security**: See SECURITY.md
-- **Chat**: [Link to Discord/Slack if applicable]
+
+<br>
 
 ## Recognition
 
