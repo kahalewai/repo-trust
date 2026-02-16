@@ -1,23 +1,11 @@
 name: 'Repo Trust'
-description: 'Cryptographically verify official GitHub release distributions and publish a trust badge'
+description: 'Publish a verified download page to GitHub Pages to protect users from repo squatting attacks'
 author: 'Repo Trust'
 
 branding:
   icon: 'shield'
   color: 'green'
 
-inputs:
-  signing_key:
-    description: 'SSH private key used to sign the Repo Trust manifest'
-    required: true
-  public_key:
-    description: 'SSH public key for verification (optional - can be committed to repo)'
-    required: false
-    default: ''
-
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  env:
-    REPO_TRUST_SIGNING_KEY: ${{ inputs.signing_key }}
-    REPO_TRUST_PUBLIC_KEY: ${{ inputs.public_key }}
