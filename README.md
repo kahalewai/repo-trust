@@ -263,7 +263,7 @@ The page still works as a download portal. The warning is a bonus layer.
 
 ### Can attackers link to my verified page?
 
-Yes — and that’s good. If users land on your real page, they’ve escaped the attack.
+Yes, and that’s good. If users land on your real page, they’ve escaped the attack.
 
 ### Does this work with GitHub Enterprise Server?
 
