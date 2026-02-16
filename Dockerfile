@@ -1,27 +1,16 @@
 FROM python:3.12-slim
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    git \
-    openssh-client \
-    curl \
-    ca-certificates \
-    && rm -rf /var/lib/apt/lists/* \
-    && apt-get clean
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends git && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Set working directory
-WORKDIR /repo-trust
+RUN pip install --no-cache-dir requests
 
-# Copy and install Python dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+COPY repo_trust/ /app/repo_trust/
+COPY entrypoint.sh /app/entrypoint.sh
 
-# Copy application code
-COPY repo_trust/ repo_trust/
-COPY entrypoint.sh .
+RUN chmod +x /app/entrypoint.sh
 
-# Make entrypoint executable
-RUN chmod +x /repo-trust/entrypoint.sh
+ENV PYTHONPATH=/app
 
-# Set entrypoint
-ENTRYPOINT ["/repo-trust/entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
