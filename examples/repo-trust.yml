@@ -1,36 +1,20 @@
-# Repo Trust Workflow
-# 
-# Copy this file to your repository at: .github/workflows/repo-trust.yml
-#
-# Prerequisites:
-# 1. Generate a signing key: ssh-keygen -t ed25519 -f repo-trust-key -N "" -C "repo-trust"
-# 2. Commit public_key.pub to your repository root
-# 3. Add REPO_TRUST_SIGNING_KEY secret containing the private key
-#
-# For detailed instructions, see: https://github.com/repo-trust/action
-
 name: Repo Trust
 
 on:
   release:
     types: [published]
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  verify:
+  publish:
     runs-on: ubuntu-latest
-    # Don't run on forks (they can't access secrets anyway)
-    if: github.event.repository.fork == false
-    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      
-      - name: Generate and publish Repo Trust verification
-        uses: repo-trust/action@v1
-        with:
-          signing_key: ${{ secrets.REPO_TRUST_SIGNING_KEY }}
+      - uses: actions/checkout@v4
+
+      - name: Repo Trust
+        uses: repo-trust/repo-trust@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
