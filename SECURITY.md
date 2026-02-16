@@ -1,8 +1,12 @@
 # Security Model
 
+<br>
+
 ## What Repo Trust Protects Against
 
 Repo Trust mitigates repo squatting, an attack where a malicious fork commit appears under the official repository's URL on GitHub, tricking users into downloading malware.
+
+<br>
 
 ### Trust Anchor
 
@@ -14,6 +18,8 @@ GitHub Pages serves content from the `gh-pages` branch of your repository. Only 
 
 By serving downloads from GitHub Pages rather than from README links (which attackers can modify in fork commits), Repo Trust moves the download experience to a domain the attacker cannot control.
 
+<br>
+
 ### Referer-Based Detection (Secondary Layer)
 
 When a user clicks through to the verified download page, the browser sends a `Referer` header. If the referring URL contains a commit hash, Repo Trust checks whether that commit exists in the official branch history via the GitHub API.
@@ -24,12 +30,16 @@ Important caveats about the Referer check:
 - Browser extensions and privacy settings can strip or modify the Referer header.
 - The Referer check is a bonus layer, not the primary defense. The download page works without it.
 
+<br>
+
 ## What Repo Trust Does NOT Protect Against
 
 - Users who don't click the badge. If a user arrives at a repo squatting page and downloads directly from the modified README without clicking the Repo Trust badge, the verification system is never engaged.
 - First-time visitors. Users who have never seen the official repository won't know to expect a Repo Trust badge.
 - Compromised maintainer accounts. If an attacker gains write access to the real repository, they can modify the gh-pages branch.
 - Code-level vulnerabilities. Repo Trust verifies distribution authenticity, not code safety.
+
+<br>
 
 ## Reporting Vulnerabilities
 
